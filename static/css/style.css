@@ -1,0 +1,26 @@
+body {
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+.gold { color: #D4AF37; }
+.btn-gold {
+    background: #D4AF37;
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.btn-gold:hover {
+    background: #ffd700;
+    transform: scale(1.05);
+}
+.card {
+    background: #111111;
+    border: 1px solid #D4AF37;
+}
+.navbar {
+    background: #000000;
+    border-bottom: 2px solid #D4AF37;
+}
