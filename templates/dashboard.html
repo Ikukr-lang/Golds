@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="gold">Мои турниры</h2>
+<a href="{{ url_for('tournament.create') }}" class="btn btn-gold mb-3">+ Новый турнир</a>
+<div class="row">
+    {% for t in tournaments %}
+    <div class="col-md-4">
+        <div class="card bg-dark border-gold">
+            <div class="card-body">
+                <h5 class="card-title gold">{{ t.name }}</h5>
+                <a href="{{ url_for('tournament.detail', t_id=t.id) }}" class="btn btn-gold btn-sm">Открыть</a>
+                <a href="{{ url_for('public.league', t_id=t.id) }}" class="btn btn-outline-gold btn-sm" target="_blank">Публичная ссылка</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
