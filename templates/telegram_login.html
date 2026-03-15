@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="card bg-dark border-gold p-4">
+            <h3 class="gold text-center">Вход через Telegram</h3>
+            <p class="text-center">Код придёт в Telegram (не SMS)</p>
+            <form method="post">
+                <input type="tel" name="phone" class="form-control bg-dark text-white mb-3" 
+                       placeholder="+79123456789" required>
+                <button type="submit" class="btn btn-gold w-100">Отправить код в Telegram</button>
+            </form>
+            <p class="text-center mt-3 gold">Тестируй на своём номере — бесплатно!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
