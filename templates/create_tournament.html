@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="gold">Создать турнир</h2>
+<form method="post">
+    <input type="text" name="name" class="form-control bg-dark text-white" placeholder="Название лиги" required>
+    <button type="submit" class="btn btn-gold mt-3">Создать</button>
+</form>
+{% endblock %}
