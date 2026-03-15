@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="gold">{{ tournament.name }}</h2>
+
+<h4>Добавить команду</h4>
+<form method="post" action="{{ url_for('tournament.add_team', t_id=tournament.id) }}">
+    <input type="text" name="team_name" class="form-control" placeholder="Название команды" required>
+    <button type="submit" class="btn btn-gold">Добавить</button>
+</form>
+
+<h4 class="mt-4">Добавить матч</h4>
+<form method="post" action="{{ url_for('tournament.add_match', t_id=tournament.id) }}">
+    <select name="home_team" class="form-select">
+        {% for team in tournament.teams %}<option value="{{ team.id }}">{{ team.name }}</option>{% endfor %}
+    </select>
+    <select name="away_team" class="form-select">
+        {% for team in tournament.teams %}<option value="{{ team.id }}">{{ team.name }}</option>{% endfor %}
+    </select>
+    <input type="datetime-local" name="date" class="form-control">
+    <button type="submit" class="btn btn-gold">Добавить матч</button>
+</form>
+
+<h4 class="mt-4">Турнирная таблица</h4>
+<table class="table table-dark">
+    <thead><tr><th>Команда</th><th>Очки</th></tr></thead>
+    <tbody>
+        {% for s in standings %}
+        <tr><td>{{ s.name }}</td><td>{{ s.points }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('public.league', t_id=tournament.id) }}" class="btn btn-outline-gold" target="_blank">Открыть публичную страницу</a>
+{% endblock %}
